@@ -41,6 +41,18 @@ x_df
 
 ```
 ```{r}
-mean(pull(x_df))
+mean(pull(x_df,1))
+```
+
+```{r}
+mean(pull(x_df,2))
+```
+
+```{r}
+mean(pull(x_df,3))
+```
+
+```{r}
+mean(pull(x_df,4))
 ```
 
