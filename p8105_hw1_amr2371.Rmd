@@ -1,0 +1,46 @@
+---
+title: "p8105_hw1_amr2371"
+output: github_document
+date: "2022-09-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+```
+
+## Problem 1
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+The penguins data set includes species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
+
+The data set contains 344 rows and 8 columns. Flipper length has a mean of 200.9152mm.
+
+```{r}
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) +
+         geom_point()
+```
+
+```{r}
+ggsave("flipper_bill_scatterplot.pdf")
+```
+
+## Problem 2
+```{r}
+x_df = tibble(
+  norm_samp = rnorm(10),
+  vector_logic = norm_samp > 0,
+  char_samp=c("this","is","an","assignment","for","my","data","science","one","class"),
+  vector_factor = factor(c("car","bike","plane","bike","bike","car","plane","car","plane","bike"))
+)
+
+x_df
+
+```
+```{r}
+mean(pull(x_df))
+```
+
