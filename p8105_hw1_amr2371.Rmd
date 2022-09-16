@@ -55,4 +55,11 @@ mean(pull(x_df,3))
 ```{r}
 mean(pull(x_df,4))
 ```
+Taking the mean of the random sample gave the correct mean, but taking the mean of the logical vector also gave a mean but this was done because R converted True and False to 1 and 0 respectively. Taking the mean of the character vector and the factor vector did not work.
 
+```{r}
+as.numeric(pull(x_df, 2))
+as.numeric(pull(x_df, 3))
+as.numeric(pull(x_df, 4))
+```
+When using the 'as.numeric' function, the logical vector is converted to 1 and 0 to represent True and False respectively so this is how the mean was calculated. The character variable is converted to NA since there is no way to assign a numeric value to characters. The factor vector is converted to 1, 2 or 3 since there are three levels, but they are still treated as character variables so R is unable to take the mean.
