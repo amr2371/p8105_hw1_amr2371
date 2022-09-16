@@ -57,7 +57,7 @@ mean(pull(x_df,4))
 ```
 Taking the mean of the random sample gave the correct mean, but taking the mean of the logical vector also gave a mean but this was done because R converted True and False to 1 and 0 respectively. Taking the mean of the character vector and the factor vector did not work.
 
-```{r}
+```{r results='hide', message=FALSE}
 as.numeric(pull(x_df, 2))
 as.numeric(pull(x_df, 3))
 as.numeric(pull(x_df, 4))
