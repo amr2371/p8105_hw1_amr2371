@@ -7,7 +7,7 @@ date: "2022-09-15"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-```{r}
+```{r message=FALSE}
 library(tidyverse)
 ```
 
@@ -15,16 +15,16 @@ library(tidyverse)
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
-The penguins data set includes species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
+The penguins data set includes species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year. Species and Island standout as important variables.
 
-The data set contains 344 rows and 8 columns. Flipper length has a mean of 200.9152mm.
+The data set contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. Flipper length has a mean of `r mean(penguins$flipper_length_mm, na.rm=TRUE)`mm.
 
-```{r}
+```{r warning=FALSE}
 ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) +
          geom_point()
 ```
 
-```{r}
+```{r warning=FALSE}
 ggsave("flipper_bill_scatterplot.pdf")
 ```
 
@@ -55,9 +55,9 @@ mean(pull(x_df,3))
 ```{r}
 mean(pull(x_df,4))
 ```
-Taking the mean of the random sample gave the correct mean, but taking the mean of the logical vector also gave a mean but this was done because R converted True and False to 1 and 0 respectively. Taking the mean of the character vector and the factor vector did not work.
+Taking the mean of the random sample gave the correct mean, and taking the mean of the logical vector gave a mean.Taking the mean of the character vector and the factor vector did not work.
 
-```{r results='hide', message=FALSE}
+```{r results=FALSE}
 as.numeric(pull(x_df, 2))
 as.numeric(pull(x_df, 3))
 as.numeric(pull(x_df, 4))
